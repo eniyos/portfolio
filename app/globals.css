@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  /* Light cream palette — matches zerith.studio */
+  --background: #ecebe3;
+  --foreground: #0a0a0a;
+  --muted: #6b6b66;
+  --card: #f4f2ec;
+  --border: rgba(10, 10, 10, 0.08);
+  --border-deco: rgba(10, 10, 10, 0.22);
+  --accent: #ff5a1f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-border-deco: var(--border-deco);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-fraunces);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.21, 0.61, 0.35, 1) both;
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-blur-in: blur-in 0.9s cubic-bezier(0.21, 0.61, 0.35, 1) both;
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blur-in {
+  0% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Selection */
+::selection {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* Scrollbar — minimal, on light bg */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 10, 10, 0.15);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 10, 10, 0.25);
+}
+
+/* Reusable grain texture for cards */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Per-section parallax helpers — translate Y based on each section's progress.
+ * Used by the section components. */
+.parallax-rise {
+  transform: translateY(calc(-2rem * var(--scroll-section-works, 0)));
+  will-change: transform;
+}
+
+/* Stat number scale-up: when a stat enters the viewport, its big number
+ * scales from 0.94 to 1.0 with a fade. 300ms ease-out to match the rest
+ * of the page's motion language. */
+.stat-rise {
+  opacity: calc(0.4 + 0.6 * var(--scroll-section-services, 0));
+  transform: scale(calc(0.94 + 0.06 * var(--scroll-section-services, 0)));
+  transform-origin: left center;
+  will-change: transform, opacity;
+  transition:
+    transform 300ms cubic-bezier(0, 0, 0.2, 1),
+    opacity 300ms cubic-bezier(0, 0, 0.2, 1);
+}
