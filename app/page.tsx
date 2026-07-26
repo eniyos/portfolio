@@ -6,7 +6,7 @@ import { Stats } from "./components/Stats";
 import { Stack } from "./components/Stack";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
+import FooterSection5 from "./components/ui/footer-section-5";
 import { ScrollProgress } from "./components/ScrollProgress";
 
 export default function Home() {
@@ -42,7 +42,7 @@ export default function Home() {
           <Contact />
         </div>
       </main>
-      <Footer />
+      <FooterSection5 />
     </>
   );
 }

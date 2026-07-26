@@ -1,8 +1,5 @@
-"use client";
-
-import { useState } from "react";
 import { Reveal } from "./Reveal";
-import { projects, workTabs, type Project } from "../lib/data";
+import { projects, type Project } from "../lib/data";
 
 const statusLabel: Record<Project["status"], string> = {
   live: "live",
@@ -17,16 +14,12 @@ const statusDot: Record<Project["status"], string> = {
 };
 
 /**
- * Works section — matches zerith.studio's source:
+ * Works section:
  *  - Section heading: "featured works."
- *  - Search input + 9 filter tabs row
  *  - 2-col grid of horizontal project cards (image left at 208×208, content right)
  *  - "And 16+ more" button below
  */
 export function Projects() {
-  const [activeTab, setActiveTab] = useState("featured");
-  const [query, setQuery] = useState("");
-
   return (
     <section
       id="works"
@@ -42,74 +35,6 @@ export function Projects() {
               a few things i&apos;ve built or am building — from smart-contract
               security tooling to agentic AI.
             </p>
-          </div>
-        </Reveal>
-
-        <Reveal variant="fade-up" delay={120} className="flex flex-col gap-5 items-stretch lg:items-end">
-          <div className="self-stretch lg:self-end">
-            <label
-              className="flex items-center gap-3 w-full sm:w-80 h-12 px-4 rounded-xl bg-card"
-              style={{
-                boxShadow:
-                  "0 1px 0.5px #ffffff inset, 0 0 0 1px #00000020, 0 1px 0 #ffffffaa, 0 4px 10px -4px #00000026",
-              }}
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="size-5 text-muted shrink-0"
-                aria-hidden="true"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <path d="m20 20-3.5-3.5" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Search by skills"
-                aria-label="Search by skills"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                className="w-full bg-transparent border-0 outline-none text-sm text-foreground placeholder:text-muted"
-              />
-            </label>
-          </div>
-
-          <div
-            role="tablist"
-            aria-label="Project domains"
-            className="flex flex-wrap items-center gap-2 sm:gap-3"
-          >
-            {workTabs.map((tab) => {
-              const isActive = tab.value === activeTab;
-              return (
-                <button
-                  key={tab.value}
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setActiveTab(tab.value)}
-                  className={[
-                    "px-3.5 sm:px-4 h-9 rounded-xl text-xs md:text-sm leading-none cursor-pointer transition-colors",
-                    isActive
-                      ? "bg-background text-foreground"
-                      : "bg-card text-foreground/80 hover:bg-card/70",
-                  ].join(" ")}
-                  style={
-                    isActive
-                      ? {
-                          boxShadow:
-                            "0 1px 0.5px #ffffff inset, 0 0 0 1px #00000020, 0 1px 0 #ffffffaa, 0 4px 10px -4px #00000026",
-                        }
-                      : { boxShadow: "0 0 0 1px #00000012" }
-                  }
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
           </div>
         </Reveal>
 
