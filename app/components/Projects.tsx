@@ -74,22 +74,31 @@ function ProjectCard({ project }: { project: Project }) {
           "0 1px 0.5px #ffffff inset, 0 0 0 1px #00000010, 0 1px 0 #ffffffcc, 0 10px 18px -6px #00000022, 0 24px 36px -16px #0000001c",
       }}
     >
-      <div
-        className="relative shrink-0 w-full aspect-square sm:w-44 md:w-52 sm:h-auto rounded-xl overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(135deg, #ff7a3d 0%, #ff5a1f 60%, #c81e00 100%)",
-        }}
-      >
-        <div className="absolute inset-0 flex items-center justify-center grain">
-          <span className="font-serif text-3xl sm:text-4xl text-white/85 tracking-tight">
-            {project.title
-              .split(" ")
-              .map((w) => w[0])
-              .join("")
-              .slice(0, 3)}
-          </span>
-        </div>
+      <div className="relative shrink-0 w-full aspect-square sm:w-44 md:w-52 sm:h-auto rounded-xl overflow-hidden bg-card">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div
+            className="absolute inset-0 flex items-center justify-center grain"
+            style={{
+              background:
+                "linear-gradient(135deg, #ff7a3d 0%, #ff5a1f 60%, #c81e00 100%)",
+            }}
+          >
+            <span className="font-serif text-3xl sm:text-4xl text-white/85 tracking-tight">
+              {project.title
+                .split(" ")
+                .map((w) => w[0])
+                .join("")
+                .slice(0, 3)}
+            </span>
+          </div>
+        )}
         <div className="absolute top-3 left-3 flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] text-white/90 bg-black/30 backdrop-blur-sm rounded-full px-2.5 py-1">
           <span
             className={`h-1.5 w-1.5 rounded-full ${statusDot[project.status]}`}

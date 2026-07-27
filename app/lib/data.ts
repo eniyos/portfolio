@@ -23,6 +23,7 @@ export type Project = {
   tags: string[];
   status: "live" | "wip" | "concept";
   href?: string;
+  image?: string;
 };
 
 export const projects: Project[] = [
@@ -33,28 +34,34 @@ export const projects: Project[] = [
     tags: ["Solana", "Rust", "Anchor", "Security"],
     status: "live",
     href: "https://github.com/Eniyanyosuva/anchor-sentinel",
+    image: "/images/anchor-sentinel.jpg",
   },
   {
-    title: "AI Developer Copilot",
+    title: "Oprepo",
     description:
-      "An agentic tool that scaffolds, refactors, and reviews code across multi-repo projects.",
-    tags: ["Python", "TypeScript", "LLMs", "Agents"],
+      "Developer–repository matchmaker. Analyzes developer skills and interests to recommend open-source projects and issues they'll love contributing to.",
+    tags: ["Next.js", "NestJS", "Python", "ML"],
     status: "wip",
+    image: "/images/oprepo.jpeg",
+    href: "https://github.com/eniyos/oprepo",
   },
   {
-    title: "On-chain Indexer",
+    title: "Backbeatin",
     description:
-      "High-throughput Solana indexer with sub-300ms p99 query latency for protocol analytics.",
-    tags: ["Solana", "Rust", "RPCs", "Postgres"],
-    status: "concept",
+      "A single-binary Rust tool that automatically verifies Restic and Borg backups can actually be restored, with cryptographic proof and webhook alerts.",
+    tags: ["Rust", "Docker", "DevOps", "Security"],
+    status: "wip",
+    image: "/images/backbeatin.jpg",
+    href: "https://github.com/eniyos/backbeatin",
   },
   {
-    title: "Handwriting Synthesis",
+    title: "CampusOps",
     description:
-      "Regressive model for realistic handwriting synthesis using stacked LSTM with soft attention and mixture density outputs.",
-    tags: ["Python", "PyTorch", "LSTM", "Deep Learning"],
+      "Trustless campus event escrow on Solana. Attendees pay with confidence — organizers receive funds only when events complete.",
+    tags: ["Solana", "Anchor", "Next.js", "Express"],
     status: "live",
-    href: "https://github.com/eniyos/handwriting",
+    href: "https://github.com/eniyos/campusops",
+    image: "/images/campusops.jpg",
   },
 ];
 
