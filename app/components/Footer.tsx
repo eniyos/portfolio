@@ -10,7 +10,7 @@ import { site } from "../lib/data";
 export function Footer() {
   return (
     <footer id="contact" className="w-full">
-      <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16 py-12 md:py-16 lg:py-20">
+      <div className="max-w-[1280px] w-full mx-auto px-6 md:px-10 lg:px-16 pt-12 md:pt-16 lg:pt-20 pb-4">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between md:gap-10 lg:gap-16">
           {/* Left col: brand + tagline */}
           <div className="flex flex-col gap-4 md:max-w-sm lg:max-w-md">
@@ -124,13 +124,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 md:mt-16 lg:mt-20 pt-6 md:pt-8 border-t border-foreground/10">
-          <p className="text-xs md:text-sm text-muted tracking-tight text-center">
-            Copyright © {new Date().getFullYear()} {site.name}. All rights
-            reserved.
-          </p>
         </div>
-      </div>
     </footer>
   );
 }

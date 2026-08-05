@@ -1,5 +1,6 @@
+import Image from "next/image";
 import { Reveal } from "./Reveal";
-import { projects, type Project } from "../lib/data";
+import { projects, site, type Project } from "../lib/data";
 
 const statusLabel: Record<Project["status"], string> = {
   live: "live",
@@ -52,12 +53,28 @@ export function Projects() {
           </div>
 
           <div className="flex justify-center">
-            <button
-              className="px-6 py-3 rounded-full bg-card text-sm font-medium hover:bg-card/80 transition-colors"
+            <a
+              href={site.social.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card text-sm font-medium hover:bg-card/80 transition-colors"
               style={{ boxShadow: "0 0 0 1px #00000012" }}
             >
               and {projects.length}+ more in the pipeline
-            </button>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="size-3.5"
+                aria-hidden="true"
+              >
+                <path d="M7 17 17 7" />
+                <path d="M7 7h10v10" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
@@ -76,11 +93,12 @@ function ProjectCard({ project }: { project: Project }) {
     >
       <div className="relative shrink-0 w-full aspect-square sm:w-44 md:w-52 sm:h-auto rounded-xl overflow-hidden bg-card">
         {project.image ? (
-          <img
+          <Image
             src={project.image}
             alt={`${project.title} preview`}
-            className="absolute inset-0 w-full h-full object-cover"
-            loading="lazy"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 768px) 11rem, 13rem"
+            className="object-cover"
           />
         ) : (
           <div

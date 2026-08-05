@@ -39,7 +39,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full"
         >
           <a
-            href="https://github.com/eniyos"
+            href={site.social.github}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative inline-flex items-center justify-center h-12 px-10 rounded-full text-sm font-medium text-white transition-transform duration-100 active:scale-[0.98] w-full sm:flex-1"

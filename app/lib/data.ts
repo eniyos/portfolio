@@ -34,7 +34,7 @@ export const projects: Project[] = [
     tags: ["Solana", "Rust", "Anchor", "Security"],
     status: "live",
     href: "https://github.com/Eniyanyosuva/anchor-sentinel",
-    image: "/images/anchor-sentinel.jpg",
+    image: "/images/anchor-sentinel.webp",
   },
   {
     title: "Oprepo",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
       "Developer–repository matchmaker. Analyzes developer skills and interests to recommend open-source projects and issues they'll love contributing to.",
     tags: ["Next.js", "NestJS", "Python", "ML"],
     status: "wip",
-    image: "/images/oprepo.jpeg",
+    image: "/images/oprepo.webp",
     href: "https://github.com/eniyos/oprepo",
   },
   {
@@ -51,7 +51,7 @@ export const projects: Project[] = [
       "A single-binary Rust tool that automatically verifies Restic and Borg backups can actually be restored, with cryptographic proof and webhook alerts.",
     tags: ["Rust", "Docker", "DevOps", "Security"],
     status: "wip",
-    image: "/images/backbeatin.jpg",
+    image: "/images/backbeatin.webp",
     href: "https://github.com/eniyos/backbeatin",
   },
   {
@@ -61,23 +61,8 @@ export const projects: Project[] = [
     tags: ["Solana", "Anchor", "Next.js", "Express"],
     status: "live",
     href: "https://github.com/eniyos/campusops",
-    image: "/images/campusops.jpg",
+    image: "/images/campusops.webp",
   },
-];
-
-/* Work-domain filter tabs (matches zerith's source). "Featured" is the
- * default selection. The other tags are presentational — we don't yet
- * filter; clicking a tab just changes the highlighted one. */
-export const workTabs: { label: string; value: string }[] = [
-  { label: "Featured", value: "featured" },
-  { label: "Web", value: "web" },
-  { label: "Infra", value: "infra" },
-  { label: "App", value: "app" },
-  { label: "Web3", value: "web3" },
-  { label: "Agents", value: "agents" },
-  { label: "UI/UX", value: "uiux" },
-  { label: "ML", value: "ml" },
-  { label: "Notes", value: "notes" },
 ];
 
 export type Stat = {
