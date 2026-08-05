@@ -10,7 +10,10 @@ import { site } from "../lib/data";
  */
 export function Contact() {
   return (
-    <section className="relative w-full py-16 md:py-20 lg:py-28 overflow-hidden">
+    <section
+      id="contact"
+      className="relative w-full py-16 md:py-20 lg:py-28 overflow-hidden"
+    >
       {/* Vertical dashed line down the center */}
       <svg
         className="hidden lg:block absolute left-1/2 top-0 h-full -translate-x-1/2 pointer-events-none"
